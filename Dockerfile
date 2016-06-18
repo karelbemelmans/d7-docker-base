@@ -16,9 +16,20 @@ RUN apt-get update && apt-get install -y libmemcached-dev \
 # and checks the MD5 sums for correctness after downloading.
 COPY bin/d7download.sh /usr/local/bin/d7download.sh
 
-# Add memcached contrib module
-RUN /usr/local/bin/d7download.sh modules memcache 7.x-1.5 3ea99c76b6429f0bbc8f922cd91eb459
+# Add Drupal modules
+# These should be absolute core modules, required for every Drupal site to work.
+# Project specific modules should be added to a governing image.
+RUN /usr/local/bin/d7download.sh modules context    7.x-3.7   7486753eef5a1496a3aa79ce7f168124
+RUN /usr/local/bin/d7download.sh modules ctools     7.x-1.9   bd7b5dac915e8fa3da909379807ef824
+RUN /usr/local/bin/d7download.sh modules ds         7.x-2.14  82193cb185ab89530b356a2022503de4
+RUN /usr/local/bin/d7download.sh modules features   7.x-2.10  5641e5545020932570aed464fbaebf6a
+RUN /usr/local/bin/d7download.sh modules libraries  7.x-2.3   294d3e4096c513321159b908cfd7c2be
+RUN /usr/local/bin/d7download.sh modules memcache   7.x-1.5   3ea99c76b6429f0bbc8f922cd91eb459
+RUN /usr/local/bin/d7download.sh modules views      7.x-3.14  168bb684c8f34297be94b03c797841e5
 
-# Add libraries contrib module
-RUN /usr/local/bin/d7download.sh modules libraries 7.x-2.3 294d3e4096c513321159b908cfd7c2be
+# Add Drupal themes
+RUN /usr/local/bin/d7download.sh themes mothership  7.x-2.10  529df1ef77532df08b46fae12a5eaaaa
 
+# Add Drupal libraries
+
+# Done.
