@@ -10,8 +10,10 @@ Currently this Dockerfile includes:
   - The `unzip` Debian package
   - The PECL memcached extension
   - The following Drupal modules:
+    - coder
     - context
     - ctools
+    - devel
     - ds
     - features
     - libraries

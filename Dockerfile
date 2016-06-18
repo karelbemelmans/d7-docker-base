@@ -16,9 +16,11 @@ RUN apt-get update && apt-get install -y libmemcached-dev \
 # and checks the MD5 sums for correctness after downloading.
 COPY bin/d7download.sh /usr/local/bin/d7download.sh
 
-# Add Drupal modules
-# These should be absolute core modules, required for every Drupal site to work.
-# Project specific modules should be added to a governing image.
+# Add Drupal modules, used for development purpose
+RUN /usr/local/bin/d7download.sh modules coder      7.x-2.7   989ac121850445c5a578f622200022b7
+RUN /usr/local/bin/d7download.sh modules devel      7.x-1.5   f06c912eb4edbd48fbcc2867516726a3
+
+# Add Drupal modules, generic contrib
 RUN /usr/local/bin/d7download.sh modules context    7.x-3.7   7486753eef5a1496a3aa79ce7f168124
 RUN /usr/local/bin/d7download.sh modules ctools     7.x-1.9   bd7b5dac915e8fa3da909379807ef824
 RUN /usr/local/bin/d7download.sh modules ds         7.x-2.14  82193cb185ab89530b356a2022503de4
