@@ -1,6 +1,6 @@
 # Drupal 7 Docker base image
 
-[Dockerfile](https://github.com/karelbemelmans/d7-docker-base/blob/master/Dockerfile)
+The Dockerfile of this image is hosted on Github: [Dockerfile](https://github.com/karelbemelmans/d7-docker-base/blob/master/Dockerfile)
 
 This Dockerfile is used as the base image for my other Drupal 7 containers. It contains a base set of PHP extensions, PECL modules, Drupal themes, Drupal modules and Drupal libraries that are common to all Drupal sites.
 
