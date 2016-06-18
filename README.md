@@ -6,8 +6,9 @@ Currently this Dockerfile includes:
 
   - The base official Drupal 7 Apache image (`FROM drupal:7-apache`)
   - The `unzip` Debian package
-  - The PECL memcached extension and the Drupal memcached module
+  - The PECL memcached extension
   - The following Drupal modules:
+    - memcached
     - libraries
   - The following Drupal themes:
     - <none>
