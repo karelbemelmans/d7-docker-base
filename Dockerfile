@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y libmemcached-dev \
 COPY bin/d7download.sh /usr/local/bin/d7download.sh
 
 # Add Drupal modules, used for development purpose
-RUN /usr/local/bin/d7download.sh modules coder      7.x-2.7   989ac121850445c5a578f622200022b7
+RUN /usr/local/bin/d7download.sh modules coder      7.x-2.5   e69d278b983464be1ba0eabcec955334
 RUN /usr/local/bin/d7download.sh modules devel      7.x-1.5   f06c912eb4edbd48fbcc2867516726a3
 
 # Add Drupal modules, generic contrib
