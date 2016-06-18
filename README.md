@@ -13,4 +13,6 @@ Currently this Dockerfile includes:
   - The following Drupal modules:
     - libraries
   - The following Drupal themes:
-    - test
+    - <none>
+  - The following Drupal libraries:
+    - <none>
