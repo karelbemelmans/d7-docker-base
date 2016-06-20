@@ -1,0 +1,14 @@
+language: bash
+services: docker
+
+install:
+  - git clone https://github.com/karelbemelmans/d7-docker-base.git ~/d7-docker-base
+
+before_script:
+  - image=d7-docker-base
+
+script:
+  - docker build -t "$image" .
+
+after_script:
+  - docker images
