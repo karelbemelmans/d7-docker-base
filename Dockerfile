@@ -17,6 +17,11 @@ RUN { \
     echo 'date.timezone = Europe/Stockholm'; \
   } > /usr/local/etc/php/conf.d/drupal-base.ini
 
+# Remove some files from the Drupal base install.
+RUN rm CHANGELOG.txt COPYRIGHT.txt INSTALL.mysql.txt INSTALL.pgsql.txt \
+       INSTALL.sqlite.txt INSTALL.txt LICENSE.txt MAINTAINERS.txt \
+       README.txt UPGRADE.txt
+
 # Copy our local settings.php file into the container.
 # This file uses a lot of environment variables to connect to services (db, cache)
 COPY config/settings.php sites/default/settings.php
