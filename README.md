@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/karelbemelmans/d7-docker-base.svg?branch=master)](https://travis-ci.org/karelbemelmans/d7-docker-base)
-
-# Drupal 7 Docker base image
+# Drupal 7 Docker base image [![Build Status](https://travis-ci.org/karelbemelmans/d7-docker-base.svg?branch=master)](https://travis-ci.org/karelbemelmans/d7-docker-base)
 
 The Dockerfile of this image is hosted on Github: [Dockerfile](https://github.com/karelbemelmans/d7-docker-base/blob/master/Dockerfile)
 
