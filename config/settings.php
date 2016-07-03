@@ -6,7 +6,7 @@ $databases['default']['default'] = array(
   'driver'   => 'mysql', // since everyone uses MySQL we can hardcode this
   'database' => $_ENV['DRUPAL_DB_NAME'],
   'username' => $_ENV['DRUPAL_DB_USER'],
-  'password' => $_ENV['DRUPAL_DB_PASSS'],
+  'password' => $_ENV['DRUPAL_DB_PASS'],
   'host'     => $_ENV['DRUPAL_DB_HOST'],
   'prefix'   => $_ENV['DRUPAL_DB_PREFIX'],
 );
