@@ -9,8 +9,8 @@ RUN mkdir -p sites/default/files && chown www-data:www-data sites/default/files
 
 # Add pecl memcache module
 RUN apt-get update && apt-get install -y libmemcached-dev \
-  && pecl install memcached \
-  && docker-php-ext-enable memcached
+  && pecl install memcache \
+  && docker-php-ext-enable memcache
 
 # Change some PHP defaults.
 RUN { \
