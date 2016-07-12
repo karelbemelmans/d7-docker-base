@@ -8,7 +8,7 @@ $databases['default']['default'] = array(
   'username' => $_ENV['DRUPAL_DB_USER'],
   'password' => $_ENV['DRUPAL_DB_PASS'],
   'host'     => $_ENV['DRUPAL_DB_HOST'],
-  'prefix'   => $_ENV['DRUPAL_DB_PREFIX'],
+  'prefix'   => !empty($_ENV['DRUPAL_DB_PREFIX']) ? $_ENV['DRUPAL_DB_PREFIX'] : '',
 );
 
 ////////////////////////////////////////////////////////////////////////////////
