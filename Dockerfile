@@ -40,11 +40,10 @@ RUN mkdir sites/all/modules/contrib \
   && drush dl context ctools date ds entity features google_analytics \
               libraries memcache pathauto strongarm token transliteration \
               variable views views_bulk_operations wysiwyg-7.x-2.x-dev \
-              xmlsitemap content_menu menu_block menu_position
+              xmlsitemap content_menu menu_block menu_position cdn
 
 # Multilingual
 RUN drush dl entity_translation i18n i18nviews l10n_update title
-
 
 # Add Drupal themes
 RUN mkdir sites/all/themes/contrib && drush dl mothership
