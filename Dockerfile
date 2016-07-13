@@ -1,21 +1,20 @@
 FROM drupal:7-apache
 MAINTAINER Karel Bemelmans <mail@karelbemelmans.com>
 
-# Add some extra packages we need in this file
-#
-# The drush versie that debian:jessie (which the drupal base image uses) is a very
-# old one. But we only use it to download modules, not actually perform database
-# updates so it's ok for us to just use that old version.
-RUN apt-get update && apt-get install -y unzip drush \
+# Add pecl memcache module
+# Add unzip
+RUN apt-get update && apt-get install -y libmemcached-dev unzip \
+  && pecl install memcached \
+  && docker-php-ext-enable memcached \
   && rm -rf /var/lib/apt/lists/*
+
+# Install drush
+ENV DRUSH_VERSION 8.1.2
+RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar > /usr/local/bin/drush \
+  && chmod +x /usr/local/bin/drush
 
 # Create the sites/default/files folder so Drupal can write caches to it
 RUN mkdir -p sites/default/files && chown www-data:www-data sites/default/files
-
-# Add pecl memcache module
-RUN apt-get update && apt-get install -y libmemcached-dev \
-  && pecl install memcached \
-  && docker-php-ext-enable memcached
 
 # Change some PHP defaults.
 RUN { \
