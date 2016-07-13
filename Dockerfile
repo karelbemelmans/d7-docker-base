@@ -39,7 +39,7 @@ COPY config/settings.php sites/default/settings.php
 
 # Add Drupal modules, used for development purpose
 RUN mkdir sites/all/modules/development \
-  && drush dl coder-7.x-2.5 devel schema --destination=sites/all/modules/development
+  && drush dl coder-7.x devel schema --destination=sites/all/modules/development
 
 # Add Drupal modules, generic contrib
 RUN mkdir sites/all/modules/contrib \
