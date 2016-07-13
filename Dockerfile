@@ -44,6 +44,9 @@ RUN mkdir sites/all/modules/contrib \
 # Multilingual
 RUN drush dl entity_translation i18n i18nviews l10n_update title
 
+# Custom modules for running Drupal 7 on AWS
+RUN drush dl log_stdout
+
 # Add Drupal themes
 RUN mkdir sites/all/themes/contrib && drush dl mothership
 
