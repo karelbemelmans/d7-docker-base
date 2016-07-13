@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y libmemcached-dev unzip \
   && docker-php-ext-enable memcached \
   && rm -rf /var/lib/apt/lists/*
 
+# Use our own apache2.conf that has been altered for reverse proxy log support
+COPY config/apache2.conf /etc/apache2/apache2.conf
+
 # Install drush
 ENV DRUSH_VERSION 8.1.2
 RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar > /usr/local/bin/drush \
