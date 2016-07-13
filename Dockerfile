@@ -29,6 +29,10 @@ RUN rm CHANGELOG.txt COPYRIGHT.txt INSTALL.mysql.txt INSTALL.pgsql.txt \
        INSTALL.sqlite.txt INSTALL.txt LICENSE.txt MAINTAINERS.txt \
        README.txt UPGRADE.txt
 
+# Create an empty favicon.ico so it stops polluting our error logs.
+# You might want to add more files here.
+RUN cat /dev/null > favicon.ico
+
 # Copy our local settings.php file into the container.
 # This file uses a lot of environment variables to connect to services (db, cache)
 COPY config/settings.php sites/default/settings.php
