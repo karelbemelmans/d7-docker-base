@@ -33,7 +33,7 @@ $conf['memcache_servers'] = array(
 );
 
 // Enforce SSL if the HTTP_X_FORWARDED_PROTO tell us to.
-if ($_ENV['HTTP_X_FORWARDED_PROTO'] == 'https') {
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
   $base_url = 'https://'.$_SERVER['SERVER_NAME'];
 }
 
