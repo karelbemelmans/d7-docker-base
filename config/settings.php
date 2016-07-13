@@ -32,6 +32,11 @@ $conf['memcache_servers'] = array(
   $_ENV['DRUPAL_MEMCACHE_HOST'] . ':' . $_ENV['DRUPAL_MEMCACHE_PORT'] => 'default'
 );
 
+// Enforce SSL if the HTTP_X_FORWARDED_PROTO tell us to.
+if ($_ENV['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $base_url = 'https://'.$_SERVER['SERVER_NAME'];
+}
+
 // Is there an extra.settings.php file to include?
 $settings = DRUPAL_ROOT . '/sites/default/extra.settings.php';
 if (file_exists($settings)) {
