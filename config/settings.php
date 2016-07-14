@@ -14,12 +14,17 @@ $databases['default']['default'] = array(
 ////////////////////////////////////////////////////////////////////////////////
 // Redis configuration
 
-$conf['redis_client_interface'] = 'PhpRedis'; // Can be "Predis".
-$conf['redis_client_host']      = $_SERVER['DRUPAL_REDIS_HOST'];  // Your Redis instance hostname.
-$conf['lock_inc']               = 'sites/all/modules/contrib/redis/redis.lock.inc';
-$conf['path_inc']               = 'sites/all/modules/contrib/redis/redis.path.inc';
-$conf['cache_backends'][]       = 'sites/all/modules/contrib/redis/redis.autoload.inc';
-$conf['cache_default_class']    = 'Redis_Cache';
+if (isset($_SERVER['DRUPAL_REDIS_HOST']) && !empty($_SERVER['DRUPAL_REDIS_HOST']) &&
+  isset($_SERVER['DRUPAL_REDIS_PORT']) && !empty($_SERVER['DRUPAL_REDIS_PORT'])) {
+
+  $conf['redis_client_interface'] = 'PhpRedis'; // Can be "Predis".
+  $conf['redis_client_host']      = $_SERVER['DRUPAL_REDIS_HOST'];  // Your Redis instance hostname.
+  $conf['redis_client_port']      = $_SERVER['DRUPAL_REDIS_PORT'];  // Your Redis instance hostname.
+  $conf['lock_inc']               = 'sites/all/modules/contrib/redis/redis.lock.inc';
+  $conf['path_inc']               = 'sites/all/modules/contrib/redis/redis.path.inc';
+  $conf['cache_backends'][]       = 'sites/all/modules/contrib/redis/redis.autoload.inc';
+  $conf['cache_default_class']    = 'Redis_Cache';
+}
 
 // This is a very basic memcached setup where there is one cache in and
 // everything goes into this bin. If you want to have a more specific caching
