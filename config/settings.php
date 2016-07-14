@@ -26,13 +26,6 @@ if (isset($_SERVER['DRUPAL_REDIS_HOST']) && !empty($_SERVER['DRUPAL_REDIS_HOST']
   $conf['cache_default_class']    = 'Redis_Cache';
 }
 
-// This is a very basic memcached setup where there is one cache in and
-// everything goes into this bin. If you want to have a more specific caching
-// strategy, override the settings.php file in your own container.
-$conf['memcache_servers'] = array(
-  $_ENV['DRUPAL_MEMCACHE_HOST'] . ':' . $_ENV['DRUPAL_MEMCACHE_PORT'] => 'default'
-);
-
 // Enforce SSL if the HTTP_X_FORWARDED_PROTO tell us to.
 if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
   $base_url = 'https://'.$_SERVER['SERVER_NAME'];
