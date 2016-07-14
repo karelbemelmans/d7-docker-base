@@ -12,18 +12,14 @@ $databases['default']['default'] = array(
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// Memcache configuration
-$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
-$conf['lock_inc'] = 'sites/all/modules/contrib/memcache/memcache-lock.inc';
-$conf['memcache_stampede_protection'] = TRUE;
-$conf['cache_default_class'] = 'MemCacheDrupal';
+// Redis configuration
 
-// The 'cache_form' bin must be assigned no non-volatile storage.
-$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
-
-// Don't bootstrap the database when serving pages from the cache.
-$conf['page_cache_without_database'] = TRUE;
-$conf['page_cache_invoke_hooks'] = FALSE;
+$conf['redis_client_interface'] = 'PhpRedis'; // Can be "Predis".
+$conf['redis_client_host']      = $_SERVER['DRUPAL_REDIS_HOST'];  // Your Redis instance hostname.
+$conf['lock_inc']               = 'sites/all/modules/contrib/redis/redis.lock.inc';
+$conf['path_inc']               = 'sites/all/modules/contrib/redis/redis.path.inc';
+$conf['cache_backends'][]       = 'sites/all/modules/contrib/redis/redis.autoload.inc';
+$conf['cache_default_class']    = 'Redis_Cache';
 
 // This is a very basic memcached setup where there is one cache in and
 // everything goes into this bin. If you want to have a more specific caching

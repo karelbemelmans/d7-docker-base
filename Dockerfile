@@ -1,11 +1,11 @@
-FROM karelbemelmans/drupal:7-apache
+FROM drupal:7-apache
 MAINTAINER Karel Bemelmans <mail@karelbemelmans.com>
 
-# Add pecl memcache module
+# Add pecl redis module
 # Add unzip
 RUN apt-get update && apt-get install -y libmemcached-dev unzip \
-  && pecl install memcached \
-  && docker-php-ext-enable memcached \
+  && pecl install redis \
+  && docker-php-ext-enable redis \
   && rm -rf /var/lib/apt/lists/*
 
 # Use our own apache2.conf that has been altered for reverse proxy log support
@@ -44,7 +44,7 @@ RUN mkdir sites/all/modules/development \
 # Add Drupal modules, generic contrib
 RUN mkdir sites/all/modules/contrib \
   && drush dl context ctools date ds entity features google_analytics \
-              libraries memcache pathauto strongarm token transliteration \
+              libraries redis pathauto strongarm token transliteration \
               variable views views_bulk_operations wysiwyg-7.x-2.x-dev \
               xmlsitemap content_menu menu_block menu_position cdn smtp \
               seckit
