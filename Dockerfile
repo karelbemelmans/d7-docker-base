@@ -1,4 +1,4 @@
-FROM drupal:7-apache
+FROM karelbemelmans/drupal:7-apache
 MAINTAINER Karel Bemelmans <mail@karelbemelmans.com>
 
 # Add pecl memcache module
