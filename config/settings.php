@@ -13,7 +13,6 @@ $databases['default']['default'] = array(
 
 ////////////////////////////////////////////////////////////////////////////////
 // Redis configuration
-
 if (isset($_SERVER['DRUPAL_REDIS_HOST']) && !empty($_SERVER['DRUPAL_REDIS_HOST']) &&
   isset($_SERVER['DRUPAL_REDIS_PORT']) && !empty($_SERVER['DRUPAL_REDIS_PORT'])) {
 
