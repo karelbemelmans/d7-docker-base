@@ -63,7 +63,7 @@ ENV CKEDITOR_VERSION 4.5.10
 RUN curl -L --silent https://github.com/ckeditor/ckeditor-releases/archive/full/${CKEDITOR_VERSION}.zip \
       -o /tmp/ckeditor.zip \
       && unzip /tmp/ckeditor.zip -d sites/all/libraries/ \
-      && mv sites/all/libraries/ckeditor-dev-${CKEDITOR_VERSION} sites/all/libraries/ckeditor \
+      && mv sites/all/libraries/ckeditor-releases-full-${CKEDITOR_VERSION} sites/all/libraries/ckeditor \
       && rm -f /tmp/ckeditor.zip
 
 # Done.
