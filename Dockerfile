@@ -53,7 +53,9 @@ RUN mkdir sites/all/modules/contrib \
 RUN drush dl entity_translation i18n i18nviews l10n_update title
 
 # Media
-RUN drush dl media-2.x-dev file_entity-2.x-dev multiform
+RUN drush dl media-2.x-dev file_entity-2.x-dev multiform \
+             media_youtube-2.x-dev media_vimeo-2.x-dev \
+             media_browser_plus-3.x-dev
 
 # Custom modules for running Drupal 7 on AWS
 RUN drush dl log_stdout
