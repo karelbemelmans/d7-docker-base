@@ -60,7 +60,8 @@ RUN mkdir sites/all/themes/contrib && drush dl mothership
 
 # Add Drupal libraries
 ENV CKEDITOR_VERSION 4.5.10
-RUN curl -L --silent https://github.com/ckeditor/ckeditor-dev/archive/${CKEDITOR_VERSION}.zip -o /tmp/ckeditor.zip \
+RUN curl -L --silent https://github.com/ckeditor/ckeditor-releases/archive/full/${CKEDITOR_VERSION}.zip \
+      -o /tmp/ckeditor.zip \
       && unzip /tmp/ckeditor.zip -d sites/all/libraries/ \
       && mv sites/all/libraries/ckeditor-dev-${CKEDITOR_VERSION} sites/all/libraries/ckeditor \
       && rm -f /tmp/ckeditor.zip
