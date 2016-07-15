@@ -4,8 +4,8 @@ MAINTAINER Karel Bemelmans <mail@karelbemelmans.com>
 # Add pecl redis module
 # Add unzip
 RUN apt-get update && apt-get install -y libmemcached-dev unzip \
-  && pecl install redis \
-  && docker-php-ext-enable redis \
+  && pecl install redis uploadprogress \
+  && docker-php-ext-enable redis uploadprogress \
   && rm -rf /var/lib/apt/lists/*
 
 # Use our own apache2.conf that has been altered for reverse proxy log support
