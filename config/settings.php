@@ -26,7 +26,7 @@ if (isset($_SERVER['DRUPAL_REDIS_HOST']) && !empty($_SERVER['DRUPAL_REDIS_HOST']
 }
 
 // Enforce SSL if the HTTP_X_FORWARDED_PROTO tell us to.
-if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+if (!isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
   $base_url = 'https://'.$_SERVER['SERVER_NAME'];
 }
 
