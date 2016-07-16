@@ -1,9 +1,10 @@
 FROM drupal:7-apache
 MAINTAINER Karel Bemelmans <mail@karelbemelmans.com>
 
+# Add unzip for package installs
+# Add mysql-client for drush
 # Add pecl redis module
-# Add unzip
-RUN apt-get update && apt-get install -y unzip \
+RUN apt-get update && apt-get install -y unzip mysql-client \
   && pecl install redis \
   && docker-php-ext-enable redis \
   && rm -rf /var/lib/apt/lists/*
