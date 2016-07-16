@@ -31,7 +31,7 @@ RUN rm CHANGELOG.txt COPYRIGHT.txt INSTALL.mysql.txt INSTALL.pgsql.txt \
 
 # Create an empty favicon.ico so it stops polluting our error logs.
 # You might want to add more files here.
-RUN cat /dev/null > favicon.ico
+RUN touch favicon.ico
 
 # Copy our local settings.php file into the container.
 # This file uses a lot of environment variables to connect to services (db, cache)
